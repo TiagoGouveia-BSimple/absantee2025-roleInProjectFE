@@ -12,6 +12,10 @@ import { ProjectComponent } from './projects/project/project.component';
 import { AssociationProjectResolver } from './association-project.resolver';
 import { ProjectFormComponent } from './projects/project-form/project-form.component';
 import { ProjectDetailsResolver } from './projects/resolvers/project-details.resolver';
+import { RoleInProjectComponent } from './role-in-project/role-in-project.component';
+import { RoleInProjectDetailsComponent } from './role-in-project/role-in-project-details/role-in-project-details.component';
+import { ProjectRoleListComponent } from './projects/project-role-list/project-role-list.component';
+import { ProjectRoleResolver } from './projects/resolvers/project-role.resolver';
 
 export const routes: Routes = [
     {
@@ -46,6 +50,13 @@ export const routes: Routes = [
                 resolve: {
                     AssociationData: AssociationProjectResolver
                 }
+            },
+            {
+                path: 'roleInProjects/:roleId',
+                component: ProjectRoleListComponent,
+                resolve: {
+                    RoleData: ProjectRoleResolver
+                }
             }
         ]
     },
@@ -73,6 +84,15 @@ export const routes: Routes = [
                 resolve: {
                     AssociationData: AssociationCollaboratorResolver
                 }
+            }
+        ]
+    }, {
+        path: 'role-in-project',
+        component: RoleInProjectComponent,
+        children: [
+            {
+                path: 'details/:roleInProjectId',
+                component: RoleInProjectDetailsComponent
             }
         ]
     }

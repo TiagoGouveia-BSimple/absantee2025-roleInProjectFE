@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Role Name</th>
+        <th>Start date</th>
+        <th>End date</th>
+    </tr>
+    @for (roleInProject of roleInProjects; track roleInProject.roleInProjectId) {
+    <tr>
+        <td>{{roleInProject.userEmail}}</td>
+        <td>{{roleInProject.roleName}}</td>
+        <td>{{roleInProject.period.initDate}}</td>
+        <td>{{roleInProject.period.finalDate}}</td>
+    </tr>
+    }
+</table>

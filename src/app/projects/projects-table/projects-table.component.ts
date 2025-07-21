@@ -14,7 +14,7 @@ export class ProjectsTableComponent {
   router = inject(Router);
   route = inject(ActivatedRoute);
 
-  selectRoute(url: string, id: string) {
+    selectRoute(url: string, id: string) {
     const currentUrl = this.router.url;
 
     if (this.currentSelectedProject() === id && currentUrl.includes(url)) {

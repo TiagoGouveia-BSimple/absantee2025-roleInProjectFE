@@ -1,0 +1,34 @@
+<button type = "button" (click)="closeDialog()" class="close-button">✖</button>
+
+<mat-form-field>
+    <mat-label>Project</mat-label>
+    <mat-select [(ngModel)]="selectedProject">
+        @for (project of projectMap; track project[0]) {
+            <mat-option [value]="project[0]">
+                {{ project[1] }}
+            </mat-option>
+        }
+    </mat-select>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>User</mat-label>
+    <mat-select [(ngModel)]="selectedUser">
+        @for (user of userMap; track user[0]) {
+            <mat-option [value]="user[0]">
+                {{ user[1] }}
+            </mat-option>
+        }
+    </mat-select>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Role</mat-label>
+    <mat-select [(ngModel)]="selectedRole">
+        @for (role of roleMap; track role[0]) {
+            <mat-option [value]="role[0]">
+                {{ role[1] }}
+            </mat-option>
+        }
+    </mat-select>
+</mat-form-field>
+
+<button type="button" (click)="saveRoleInProject()">Save</button>

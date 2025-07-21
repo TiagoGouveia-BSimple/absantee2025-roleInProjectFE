@@ -10,12 +10,9 @@
         <td>{{proj.acronym}}</td>
         <td><button (click)="selectRoute('details', proj.id!)" data-testid="details-btn">Details</button>
             <button (click)="selectRoute('associations', proj.id!)" data-testid="collabs-btn">Collaborators</button>
+            <button (click)="selectRoute('roleInProjects', proj.id!)" data-testid="role-btn">Roles</button>
         </td>
-    </tr>
-    <tr>
-        @if (currentSelectedProject() === proj.id) {
-        <router-outlet />
-        }
     </tr>
     }
 </table>
+<router-outlet />

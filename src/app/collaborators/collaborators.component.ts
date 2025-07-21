@@ -26,7 +26,7 @@ export class CollaboratorsComponent {
 
   collaborators = signal<CollaboratorViewModel[]>([]);
 
-   constructor(
+  constructor(
     private collaboratorDataService: CollaboratorDataService,
     private dialog: MatDialog
   ) {

@@ -1,0 +1,8 @@
+<button type = "button" (click)="closeDialog()" class="close-button">✖</button>
+
+<div>
+  <label for="description">Description</label>
+  <input id="description" [(ngModel)]="description" type="text" />
+
+  <button id ="save"(click)="saveRole()">Save</button>
+</div>

@@ -10,31 +10,32 @@ import { Project } from "./models/project.model";
 @Injectable({ providedIn: 'root' })
 
 export class ProjectsDataService {
-  private readonly baseUrl = environment.apiBaseUrl;
+  private readonly baseUrlQuery = environment.apiProjectQuery;
+  private readonly baseUrlCmd = environment.apiProjectCmd;
 
   constructor(private http: HttpClient) { }
 
   getProjects(): Observable<Project[]> {
-    return this.http.get<Project[]>(`${this.baseUrl}/Project`)
+    return this.http.get<Project[]>(`${this.baseUrlQuery}/Project`)
   }
 
   getProjectById(id: string): Observable<Project> {
-    return this.http.get<Project>(`${this.baseUrl}/Project/${id}`);
+    return this.http.get<Project>(`${this.baseUrlQuery}/Project/${id}`);
   }
 
   getAssociations(id: string): Observable<AssociationProjectCollaborators[]> {
-    return this.http.get<AssociationProjectCollaboratorsDTO[]>(`${this.baseUrl}/Project/${id}/associations`);
+    return this.http.get<AssociationProjectCollaboratorsDTO[]>(`${this.baseUrlQuery}/Project/${id}/associations`);
   }
 
   createProject(newProject: ProjectCreateRequest): Observable<Project> {
-    return this.http.post<Project>(`${this.baseUrl}/Project`, newProject);
+    return this.http.post<Project>(`${this.baseUrlCmd}/Project`, newProject);
   }
 
   updateProject(updatedProject: Project): Observable<Project> {
-    return this.http.put<Project>(`${this.baseUrl}/Project`, updatedProject);
+    return this.http.put<Project>(`${this.baseUrlCmd}/Project`, updatedProject);
   }
 
   createAssociation(id: string, newAssoc: AssociationProjectCollaboratorCreateRequest): Observable<AssociationProjectCollaborators> {
-    return this.http.post<AssociationProjectCollaboratorsDTO>(`${this.baseUrl}/Project/${id}/collaborators`, newAssoc);
+    return this.http.post<AssociationProjectCollaboratorsDTO>(`${this.baseUrlCmd}/Project/${id}/collaborators`, newAssoc);
   }
 }

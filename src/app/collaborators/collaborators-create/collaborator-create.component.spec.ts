@@ -9,6 +9,8 @@ import { Collaborator } from '../collaborator';
 import { CollaboratorViewModel } from '../collaborator-details/collaborator.viewmodel';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { By } from '@angular/platform-browser';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('CollaboratorCreateComponent', () => {
   let component: CollaboratorCreateComponent;
@@ -31,7 +33,9 @@ describe('CollaboratorCreateComponent', () => {
         { provide: CollaboratorDataService, useValue: mockDataService }, // Injeta o mock do serviço
         { provide: CollaboratorSignalService, useValue: mockSignalService }, // Injeta o mock do serviço
         { provide: MAT_DIALOG_DATA, useValue: {} },
-        { provide: MatDialogRef, useValue: mockDialog }
+        { provide: MatDialogRef, useValue: mockDialog },
+        provideHttpClient(),
+        provideHttpClientTesting()
       ]
     }).compileComponents();
 

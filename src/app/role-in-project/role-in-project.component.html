@@ -1,0 +1,7 @@
+<button (click)="openDetails(null)">Create Role In Project</button>
+<button (click)="openCreateRole()">Create Role</button>
+
+<app-role-in-project-list [inputRoleInProjects]="roleInProjects()" (openDetails)="openDetails($event)">
+</app-role-in-project-list>
+
+<router-outlet/>
