@@ -65,7 +65,7 @@ export class CollaboratorsComponent {
   }
 
   openCreate() {
-    let collabDialog = this.dialog.open(CollaboratorCreateComponent);
+    let collabDialog = this.dialog.open(CollaboratorCreateComponent, { panelClass: ['custom-dialog-container'] });
 
     collabDialog.afterClosed().subscribe(res => {
       this.collaboratorDataService.getCollabs().subscribe({
